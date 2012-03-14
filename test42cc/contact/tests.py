@@ -7,6 +7,7 @@ Replace this with more appropriate tests for your application.
 
 from django.test import TestCase
 from django.utils import unittest
+from contact.models import Contact
 
 class SimpleTest(TestCase):
     def test_basic_addition(self):
@@ -15,14 +16,19 @@ class SimpleTest(TestCase):
         """
         self.assertEqual(1 + 1, 2)
 
-class ContactTest(unittest.TestCase):
-	def setUp(self):
-		self.contact = Conatct.objects.create(name='name', surname='surname',
-			birthday='birthday', bio='bio', contacts='contacts')
-
-
 class IndexPageTest(TestCase):
-	def test_index(self):
-		response = self.client.get('/')
-		self.assertEqual(response.status_code, 200)
+    def test_index(self):
+        """Test for http request main page
+        """
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
 
+class ContactTest(unittest.TestCase):
+    def setUp(self):
+        self.contact = Contact.objects.create(name='name', surname='surname',
+            birthday='birthday', bio='bio', contacts='contacts')
+
+    def test_entry_exists(self):
+        """ Test for Contact object creation
+        """
+        self.assertNotEqual(Contact.objects.count(), 0)

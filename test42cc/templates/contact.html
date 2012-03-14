@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Contact page{% endblock %}
+
+{% block content %}
+	<div >
+		{%  if contact %}
+			<div class="c_head">My Contact:</div>
+			<div id="c_entry"><span id="c_record">name</span>: {{ contact.name }}</div>
+			<div id="c_entry"><span id="c_record">surname</span>: {{ contact.surname }}</div>
+			<div id="c_entry"><span id="c_record">birthday</span>: {{ contact.birthday }}</div>
+			<div id="c_entry"><span id="c_record">bio</span>: {{ contact.bio }}</div>
+			<div id="c_entry"><span id="c_record">contacts</span>: {{ contact.contacts }}</div>
+		{% endif %}
+	</div>
+{% endblock %}
+
+</body>
+</html>

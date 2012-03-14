@@ -1,0 +1,13 @@
+[
+    {
+        "pk": 1, 
+        "model": "contact.contact", 
+        "fields": {
+            "bio": "I am ...", 
+            "birthday": "29.07.1984", 
+            "surname": "Kovtun", 
+            "name": "Volodya", 
+            "contacts": "I am here"
+        }
+    }
+]

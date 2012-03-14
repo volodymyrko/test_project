@@ -9,6 +9,9 @@ class Contact(models.Model):
     surname = models.CharField(max_length=255)
     birthday = models.CharField(max_length=20, blank=True)
     bio = models.TextField()
+    email = models.EmailField(blank=True)
+    jabber = models.EmailField(blank=True)
+    skype = models.CharField(max_length=50, blank=True)
     contacts = models.TextField()
 
     def __unicode__(self):

@@ -26,7 +26,8 @@ class IndexPageTest(TestCase):
 class ContactTest(unittest.TestCase):
     def setUp(self):
         self.contact = Contact.objects.create(name='name', surname='surname',
-            birthday='birthday', bio='bio', contacts='contacts')
+            birthday='birthday', bio='bio', email='email@server.ua', jabber='jabber@server.com',
+            skype='skype_name', contacts='contacts')
 
     def test_entry_exists(self):
         """ Test for Contact object creation

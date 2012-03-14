@@ -4,10 +4,13 @@
         "model": "contact.contact", 
         "fields": {
             "bio": "I am ...", 
-            "birthday": "29.07.1984", 
             "surname": "Kovtun", 
             "name": "Volodya", 
-            "contacts": "I am here"
+            "contacts": "I am here", 
+            "birthday": "29.07.1984", 
+            "skype": "volodya", 
+            "jabber": "volodymyrko@khavr.com", 
+            "email": "my_mail@ukraine.ua"
         }
     }
 ]

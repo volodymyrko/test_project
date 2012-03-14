@@ -4,7 +4,7 @@ from contact.models import Contact
 
 
 def index(request):
-    """views for index '/'' request, that represent contacts
+    """views for index '/ request, that represent contacts
     """
     query = Contact.objects.all()[:1]
     contact = get_object_or_404(query,)

@@ -252,12 +252,12 @@
             "is_active": true, 
             "is_superuser": true, 
             "is_staff": true, 
-            "last_login": "2012-03-14 08:16:33", 
+            "last_login": "2012-03-14 10:49:22", 
             "groups": [], 
             "user_permissions": [], 
-            "password": "sha1$969db$78fbd237a5e432d4aa879af0134af40a2b534f15", 
-            "email": "vova07@gmail.com", 
-            "date_joined": "2012-03-14 08:16:33"
+            "password": "sha1$81cac$0fb4510d4f36002c71b20e223f034a481f7ff3d9", 
+            "email": "vova-zms@yandex.ua", 
+            "date_joined": "2012-03-14 10:49:12"
         }
     }
 ]

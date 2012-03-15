@@ -18,3 +18,14 @@
 	float: right;
 	width: 45%
 }
+.main {
+	width: 80%;
+}
+.clear{
+	clear: both;
+}
+
+div.hr {
+  height: 15px;
+  clear: both;
+}

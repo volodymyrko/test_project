@@ -4,26 +4,26 @@
 
 {% block content %}
 
-	<div class="head">42 Coffee Cups Test Assignment:</div>
+    <div class="head">42 Coffee Cups Test Assignment:</div>
 
 <div class="main">
-	<div class="left_part">
-		<div id="record">{{ contact.name }} </div>
-		<div id="record">{{ contact.surname }} </div>
-		<div id="record">{{ contact.birthday }} </div>
-		<div id="record">Bio:</div>
-		<div>{{ contact.bio }}</div>
-	</div>
-	<div class="right_part">
-		<div id="record">Contacts</div>
-		<div> <span >Email:</span> {{ contact.email }}</div>
-		<div> <span >Jabber:</span> {{ contact.jabber }}</div>
-		<div> <span >Skype:</span> {{ contact.skype }}</div>
-		<div id="record">Other contacts:</div>
-		<div>{{ contact.contacts }}</div>
-	</div>
-	<div class="hr"><hr /></div>
-	<a href="{% url requests %}" title="show last http requests">requests</a>
+    <div class="left_part">
+        <div id="record">{{ contact.name }} </div>
+        <div id="record">{{ contact.surname }} </div>
+        <div id="record">{{ contact.birthday }} </div>
+        <div id="record">Bio:</div>
+        <div>{{ contact.bio }}</div>
+    </div>
+    <div class="right_part">
+        <div id="record">Contacts</div>
+        <div> <span >Email:</span> {{ contact.email }}</div>
+        <div> <span >Jabber:</span> {{ contact.jabber }}</div>
+        <div> <span >Skype:</span> {{ contact.skype }}</div>
+        <div id="record">Other contacts:</div>
+        <div>{{ contact.contacts }}</div>
+    </div>
+    <div class="hr"><hr /></div>
+    <a href="{% url requests %}" title="show last http requests">requests</a>
 </div>
 
 

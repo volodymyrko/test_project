@@ -1,5 +1,6 @@
 # Django settings for test42cc project.
 
+import django.conf.global_settings as DEFAULT_SETTINGS
 import os 
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
@@ -154,4 +155,8 @@ LOGGING = {
 
 FIXTURE_DIRS = (
     os.path.join(PROJECT_PATH, 'fixtures'),
+)
+
+TEMPLATE_CONTEXT_PROCESSORS =  DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
+    'contact.context_processors.django_settings',
 )

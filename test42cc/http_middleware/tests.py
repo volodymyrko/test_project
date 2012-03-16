@@ -11,6 +11,9 @@ from django.test.client import Client
 from django.core.urlresolvers import reverse
 from http_middleware.models import HttpRequestStore
 
+TOO_HIGHT_GET_PARAM = '99999999'
+BAD_GET_PARAM = 'not_integer'
+
 class HttpReqeustTest(unittest.TestCase):
     def setUp(self):
         self.client = Client()
@@ -21,11 +24,20 @@ class HttpReqeustTest(unittest.TestCase):
     def test_http_middleware(self):
         """ Test for request saving in db
         """
-        self.assertTrue(HttpRequestStore.objects.filter(path=self.path).count() > 0)
+        count = HttpRequestStore.objects.filter(path=self.path).count()
+        self.assertTrue( count > 0)
 
     def test_get_response(self):
-        """ testing  get '/request' result
+        """ testing  get '/requests/' result
         """
         url = reverse('requests')
         response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        url = reverse('requests')
+        response = self.client.get(url, {'page': TOO_HIGHT_GET_PARAM})
+        self.assertEqual(response.status_code, 200)
+
+        url = reverse('requests')
+        response = self.client.get(url, {'page': BAD_GET_PARAM })
         self.assertEqual(response.status_code, 200)

@@ -1,9 +1,20 @@
 # Create your views here.
 
-from django.shortcuts import render_to_response, get_list_or_404
+from django.shortcuts import render_to_response
+from django.core.paginator import Paginator, EmptyPage
 from http_middleware.models import HttpRequestStore
 
+RECORDS_BY_PAGE = 10
+
 def requests(request):
-	request_list = HttpRequestStore.objects.order_by('-time')[:10]
-	return render_to_response('requests.html', {'request_list': request_list})
+    """ show http requests stored (order_by middleware) in db
+    """
+    all_request = HttpRequestStore.objects.order_by('-time')
+    page = request.GET.get('page', 1)
+    paginator = Paginator(all_request, RECORDS_BY_PAGE)
+    try:
+        requests = paginator.page(page)
+    except EmptyPage:
+        requests = paginator.page(paginator.num_pages)
+    return render_to_response('requests.html', {'requests': requests})
 

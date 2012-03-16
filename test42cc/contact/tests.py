@@ -8,6 +8,7 @@ Replace this with more appropriate tests for your application.
 from django.test import TestCase
 from django.utils import unittest
 from contact.models import Contact
+from django.conf import settings
 
 class SimpleTest(TestCase):
     def test_basic_addition(self):
@@ -33,3 +34,12 @@ class ContactTest(unittest.TestCase):
         """ Test for Contact object creation
         """
         self.assertNotEqual(Contact.objects.count(), 0)
+
+class ContextTest(unittest.TestCase):
+    """ test that  processor present in processor list
+    """
+    def test_context(self):
+        processor = 'contact.context_processors.django_settings'
+        all_processors = settings.TEMPLATE_CONTEXT_PROCESSORS
+        self.assertTrue(processor in all_processors)
+

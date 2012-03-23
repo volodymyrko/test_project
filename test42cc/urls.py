@@ -16,5 +16,5 @@ urlpatterns = patterns('',
      url(r'^admin/', include(admin.site.urls)),
 
      url(r'^requests/$', include('http_middleware.urls')),
-     url(r'^$', include('contact.urls')),
+     url(r'', include('contact.urls')),
 )

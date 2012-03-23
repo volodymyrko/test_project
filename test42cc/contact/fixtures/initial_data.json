@@ -3,10 +3,11 @@
         "pk": 1, 
         "model": "contact.contact", 
         "fields": {
-            "bio": "I am ...", 
+            "bio": "I am .", 
             "surname": "Kovtun", 
             "name": "Volodya", 
-            "contacts": "I am here", 
+            "contacts": "I am in here .. and there", 
+            "photo": "", 
             "birthday": "29.07.1984", 
             "skype": "volodya", 
             "jabber": "volodymyrko@khavr.com", 

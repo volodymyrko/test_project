@@ -5,14 +5,14 @@
 {% block content %}
 
     <div class="head">42 Coffee Cups Test Assignment:</div>
-
+    <div class="login">{% if not user.is_superuser %}<a href="/admin/">login</a>{% endif %}</div>
+    <div class="clear"> </div>
 <div class="main">
     <div class="left_part">
         <div id="record">{{ contact.name }} </div>
         <div id="record">{{ contact.surname }} </div>
         <div id="record">{{ contact.birthday }} </div>
-        <div id="record">Bio:</div>
-        <div>{{ contact.bio }}</div>
+        <div id="preview">{% if contact.photo %}<img src="/static/{{ contact.photo.url }}" /> {% endif %}</div>
     </div>
     <div class="right_part">
         <div id="record">Contacts</div>
@@ -21,9 +21,18 @@
         <div> <span >Skype:</span> {{ contact.skype }}</div>
         <div id="record">Other contacts:</div>
         <div>{{ contact.contacts }}</div>
+        <div id="record">Bio:</div>
+        <div>{{ contact.bio }}</div>
     </div>
     <div class="hr"><hr /></div>
+    {% if user.is_superuser %}
+        <div class="edit">
+            <a href="{% url edit %}" title="edit contact info">Edit</a>
+        </div>
+    {% endif %}
+
     <a href="{% url requests %}" title="show last http requests">requests</a>
+
 </div>
 
 

@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Edit contact info{% endblock %}
+
+{% block content %}
+    {% if form.errors %}
+        <div id="is_error">Fix error in form: </div>
+    {% endif %}
+    <form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="main">
+        <div class="left_part">
+            <div class="field">
+                <span id="error">{{ form.name.errors }}</span>
+                <label for="id_subject">Name:</label>
+                {{ form.name }}
+            </div>
+            <div class="field">
+                <span id="error">{{ form.surname.errors }}</span>
+                <label for="id_surname">Surname:</label>
+                {{ form.surname }}
+            </div>
+            <div class="field">
+                <span id="error">{{ form.birthday.errors }}</span>
+                <label for="id_birthday">Birthday:</label>
+                {{ form.birthday }}
+            </div>
+            <div class="field">
+                <span id="error">{{ form.photo.errors }}</span>
+                <label for="id_photo">Photo:</label>
+                <input type="file" name="photo" id="id_photo" >
+            </div>
+            <div id="preview">
+                {% if form.instance.photo %}
+                    <img src="/static/{{ form.instance.photo  }}" />
+                {% endif %}
+            </div>
+
+        </div>
+        <div class="right_part">
+            <div class="field">
+                <span id="error">{{ form.email.errors }}</span>
+                <label for="id_email">Email:</label>
+                {{ form.email }}
+            </div>
+            <div class="field">
+                <span id="error">{{ form.skype.errors }}</span>
+                <label for="id_skype">Skype:</label>
+                {{ form.skype }}
+            </div>
+            <div class="field">
+                <span id="error">{{ form.jabber.errors }}</span>
+                <label for="id_jabber">Jabber:</label>
+                {{ form.jabber }}
+            </div>
+            <div class="field">
+                <span id="error">{{ form.contacts.errors }}</span>
+                <label for="id_">Other Contacts:</label>
+                <p>
+                {{ form.contacts }}</p>
+            </div>
+            <div class="field">
+                <span id="error">{{ form.bio.errors }}</span>
+                <label for="id_bio">Bio:</label>
+                <p>{{ form.bio }}</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="hr"></div>
+        <input type="submit" name="Change" value="Save"> &nbsp<a href="{% url index %}">Cancel</a>
+    </form>
+    <div class="hr"><hr /></div>
+    <a href="{% url requests %}" title="show last http requests">requests</a>
+    
+{% endblock %}

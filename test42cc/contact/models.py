@@ -24,13 +24,11 @@ class Contact(models.Model):
     class Meta:
         db_table = 'contact'
 
-    def save(self):
+    def save(self, *args, **kwargs):
         """ rezise image if it's size is more than PHOTO_WIDTH and PHOTO_HEIGHT
         """
-        super(Contact, self).save()
+        super(Contact, self).save(*args, **kwargs)
         if self.photo:
-            #import pd; pdb.set_trace()
-            #img = Image()
             image = Image.open(self.photo.path)
             if image.mode not in ('L', 'RGB'):
                 image = image.convert('RGB')
